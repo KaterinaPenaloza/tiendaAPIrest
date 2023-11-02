@@ -1,0 +1,27 @@
+# //CONSEGUIR UN VENDEDOR
+# curl http://localhost:1337/vendedor/1
+
+# //CONSEGUIR TODOS LOS VENDEDORES
+# curl http://localhost:1337/vendedor
+
+# //ELIMINAR VENDEDOR
+# curl -X DELETE http://localhost:1337/vendedor/2
+
+
+//AGREGAR VENDEDOR
+# curl -X POST \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "nombreVendedor": "John Cash"
+# }' \
+#   http://localhost:1337/vendedor
+
+//UPDATEAR VENDEDOR
+
+#   curl -X PATCH \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "numeroVendedor": 4,
+#     "nombreVendedor": "Stephen Man"
+# }' \
+#   http://localhost:1337/vendedor/4

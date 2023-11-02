@@ -1,0 +1,25 @@
+# //MOSTRAR TIPO PRODUCTO
+# curl http://localhost:1337/tipoProducto/1
+
+# //MOSTRAR TODOS LOS TIPOS DE PRODUCTOS
+# curl http://localhost:1337/tipoProducto
+
+//AGREGAR TIPO PRODUCTO
+# curl -X POST \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "descripcionProducto": "Escalera Gigante"
+# }' \
+#   http://localhost:1337/tipoProducto
+
+//UPDATEAR TIPO PRODUCTO
+#   curl -X PATCH \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "numeroVendedor": 4,
+#     "nombreVendedor": "Stone Cold Steve Austin the Coldest"
+# }' \
+#   http://localhost:1337/vendedor/:id
+
+# //ELIMINAR TIPO PRODUCTO
+# curl -X DELETE http://localhost:1337/tipoProducto/:id

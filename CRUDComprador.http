@@ -1,0 +1,25 @@
+# //MOSTRAR UN COMPRADOR
+#curl http://localhost:1337/comprador/1
+
+# //MOSTRAR TODOS LOS COMPRADORES
+# curl http://localhost:1337/comprador
+
+# //ELIMINAR COMPRADOR
+# curl -X DELETE http://localhost:1337/comprador/4
+
+//AGREGAR COMPRADOR
+# curl -X POST \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "nombreComprador": "Gabe Hardy"
+# }' \
+#   http://localhost:1337/comprador
+
+//MODIFICAR COMPRADOR
+#   curl -X PATCH \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "idComprador": 1,
+#     "nombreComprador": "Matt Rock"
+# }' \
+#   http://localhost:1337/comprador/1

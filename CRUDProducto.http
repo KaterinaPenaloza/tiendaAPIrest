@@ -1,0 +1,21 @@
+# //Mostrar producto
+# curl http://localhost:1337/producto/1/1/1
+
+# //Mostrar todos los productos
+# curl http://localhost:1337/producto
+
+//AGREGAR producto
+# curl -X POST -H "Content-Type: application/json" -d '{
+#   "numeroVendedor": 1,
+#   "idComprador": 2,
+#   "idTipoProducto": 1,
+#   "precioCompra": 12000
+# }' http://localhost:1337/producto
+
+//UPDATE producto
+# curl -X PATCH -H "Content-Type: application/json" -d '{
+#   "precioCompra": 54000
+# }' http://localhost:1337/producto/:numeroVendedor/:idComprador/:idTipoProducto
+
+# //ELIMINAR producto
+# curl -X DELETE http://localhost:1337/producto/:numeroVendedor/:idComprador/:idTipoProducto
