@@ -19,7 +19,7 @@
 #   curl -X PATCH \
 #   -H "Content-Type: application/json" \
 #   -d '{
-#     "idComprador": 1,
+#     "IDComprador": 1,
 #     "nombreComprador": "Matt Rock"
 # }' \
 #   http://localhost:1337/comprador/1

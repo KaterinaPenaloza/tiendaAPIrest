@@ -9,15 +9,15 @@ function getAllVendedores() {
 };
 
 function deleteVendedor(id) {
-    return knex("vendedor").where("numeroVendedor", id).del();
+    return knex("vendedor").where("IDVendedor", id).del();
 };
 
 function updateVendedor(id, vendedor) {
-    return knex("vendedor").where("numeroVendedor", id).update(vendedor);
+    return knex("vendedor").where("IDVendedor", id).update(vendedor);
 };
 
 function getVendedor(id) {
-    return knex("vendedor").where("numeroVendedor",id).select("*");
+    return knex("vendedor").where("IDVendedor",id).select("*");
 };
 
 module.exports = {

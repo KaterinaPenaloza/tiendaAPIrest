@@ -8,32 +8,32 @@ function getAllProducto() {
     return knex("producto").select("*");
 };
 
-function getProducto(numeroVendedor, idComprador, idTipoProducto) {
+function getProducto(IDVendedor, IDComprador, IDTipoProducto) {
     return knex("producto")
     .where({
-      numeroVendedor: numeroVendedor,
-      idComprador: idComprador,
-      idTipoProducto: idTipoProducto,
+      numeroVendedor: IDVendedor,
+      idComprador: IDCComprador,
+      idTipoProducto: IDTipoProducto,
     })
     .select("*");
 };
 
-function deleteProducto(numeroVendedor, idComprador, idTipoProducto) {
+function deleteProducto(IDVendedor, IDComprador, IDTipoProducto) {
     return knex("producto")
       .where({
-        numeroVendedor: numeroVendedor,
-        idComprador: idComprador,
-        idTipoProducto: idTipoProducto,
+        numeroVendedor: IDVendedor,
+        idComprador: IDComprador,
+        idTipoProducto: IDTipoProducto,
       })
       .del();
   }
 
-  function updateProducto(numeroVendedor, idComprador, idTipoProducto, producto) {
+  function updateProducto(IDVendedor, IDComprador, IDTipoProducto, producto) {
     return knex("producto")
       .where({
-        numeroVendedor: numeroVendedor,
-        idComprador: idComprador,
-        idTipoProducto: idTipoProducto,
+        numeroVendedor: IDVendedor,
+        idComprador: IDComprador,
+        idTipoProducto: IDTipoProducto,
       })
       .update(producto);
   }

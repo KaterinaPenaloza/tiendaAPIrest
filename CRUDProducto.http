@@ -6,10 +6,10 @@
 
 //AGREGAR producto
 # curl -X POST -H "Content-Type: application/json" -d '{
-#   "numeroVendedor": 1,
-#   "idComprador": 2,
-#   "idTipoProducto": 1,
-#   "precioCompra": 12000
+#   "IDVendedor": 4,
+#   "IDComprador": 3,
+#   "IDTipoProducto": 4,
+#   "precioCompra": 15900
 # }' http://localhost:1337/producto
 
 //UPDATE producto

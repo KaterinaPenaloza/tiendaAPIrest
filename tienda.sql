@@ -7,6 +7,10 @@
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.8
 
+-- Base de datos: `tienda`
+CREATE DATABASE IF NOT EXISTS tienda;
+USE tienda; -- Selecciona la base de datos "tienda"
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -18,17 +22,16 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
--- Base de datos: `tienda`
 -- --------------------------------------------------------
 
--- Estructura de tabla `cliente`
-CREATE TABLE `cliente` (
-  `IDCliente` int(11) NOT NULL,
-  `nombreCliente` varchar(200) NOT NULL
+-- Estructura de la tabla `comprador`
+CREATE TABLE IF NOT EXISTS `comprador` (
+  `IDComprador` int(11) NOT NULL,
+  `nombreComprador` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcado de datos para la tabla `cliente`
-INSERT INTO `cliente` (`IDCliente`, `nombreCliente`) VALUES
+-- Volcado de datos para la tabla `comprador`
+INSERT INTO `comprador` (`IDComprador`, `nombreComprador`) VALUES
 (1, 'Emma Wilson'),
 (2, 'Liam Clark'),
 (3, 'Charlotte Turner'),
@@ -38,28 +41,28 @@ INSERT INTO `cliente` (`IDCliente`, `nombreCliente`) VALUES
 -- --------------------------------------------------------
 
 -- Estructura de tabla `Producto`
-CREATE TABLE `Producto` (
+CREATE TABLE IF NOT EXISTS `Producto` (
   `IDVendedor` int(11) NOT NULL,
-  `IDCliente` int(11) NOT NULL,
-  `idTipoProducto` int(11) NOT NULL,
+  `IDComprador` int(11) NOT NULL,
+  `IDTipoProducto` int(11) NOT NULL,
   `precioCompra` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Volcado de datos para la tabla `Producto`
-INSERT INTO `Producto` (`IDVendedor`, `IDCliente`, `idTipoProducto`, `precioCompra`) VALUES
+INSERT INTO `Producto` (`IDVendedor`, `IDComprador`, `IDTipoProducto`, `precioCompra`) VALUES
 (1, 1, 1, 1000),
 (2, 2, 2, 2000);
 
 -- --------------------------------------------------------
 
 -- Estructura de tabla `TipoProducto`
-CREATE TABLE `TipoProducto` (
-  `idTipoProducto` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `TipoProducto` (
+  `IDTipoProducto` int(11) NOT NULL,
   `descripcionProducto` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Volcado de datos para la tabla `TipoProducto`
-INSERT INTO `TipoProducto` (`idTipoProducto`, `descripcionProducto`) VALUES
+INSERT INTO `TipoProducto` (`IDTipoProducto`, `descripcionProducto`) VALUES
 (1, 'Cinturón campeonato'),
 (2, 'Silla plegable'),
 (3, 'Bate de béisbol'),
@@ -71,7 +74,7 @@ INSERT INTO `TipoProducto` (`idTipoProducto`, `descripcionProducto`) VALUES
 
 -- Estructura de tabla `vendedor`
 
-CREATE TABLE `vendedor` (
+CREATE TABLE IF NOT EXISTS `vendedor` (
   `IDVendedor` int(11) NOT NULL,
   `nombreVendedor` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -88,24 +91,24 @@ INSERT INTO `vendedor` (`IDVendedor`, `nombreVendedor`) VALUES
 -- Índices para tablas volcadas
 
 --
--- Indices de la tabla `cliente`
+-- Indices de la tabla `Comprador`
 --
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`IDCliente`);
+ALTER TABLE `comprador`
+  ADD PRIMARY KEY (`IDComprador`);
 
 --
 -- Indices de la tabla `Producto`
 --
 ALTER TABLE `Producto`
-  ADD KEY `fk_Cliente` (`IDCliente`),
+  ADD KEY `fk_Comprador` (`IDComprador`),
   ADD KEY `fk_vendedor` (`IDVendedor`),
-  ADD KEY `fk_tipoproducto` (`idTipoProducto`);
+  ADD KEY `fk_tipoproducto` (`IDTipoProducto`);
 
 --
 -- Indices de la tabla `TipoProducto`
 --
 ALTER TABLE `TipoProducto`
-  ADD PRIMARY KEY (`idTipoProducto`);
+  ADD PRIMARY KEY (`IDTipoProducto`);
 
 --
 -- Indices de la tabla `vendedor`
@@ -118,16 +121,16 @@ ALTER TABLE `vendedor`
 --
 
 --
--- AUTO_INCREMENT de la tabla `cliente`
+-- AUTO_INCREMENT de la tabla `Comprador`
 --
-ALTER TABLE `cliente`
-  MODIFY `IDCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `comprador`
+  MODIFY `IDComprador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `TipoProducto`
 --
 ALTER TABLE `TipoProducto`
-  MODIFY `idTipoProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IDTipoProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor`
@@ -143,8 +146,8 @@ ALTER TABLE `vendedor`
 -- Filtros para la tabla `Producto`
 --
 ALTER TABLE `Producto`
-  ADD CONSTRAINT `fk_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`),
-  ADD CONSTRAINT `fk_tipoproducto` FOREIGN KEY (`idTipoProducto`) REFERENCES `TipoProducto` (`idTipoProducto`),
+  ADD CONSTRAINT `fk_Comprador` FOREIGN KEY (`IDComprador`) REFERENCES `comprador` (`IDComprador`),
+  ADD CONSTRAINT `fk_tipoproducto` FOREIGN KEY (`IDTipoProducto`) REFERENCES `TipoProducto` (`IDTipoProducto`),
   ADD CONSTRAINT `fk_vendedor` FOREIGN KEY (`IDVendedor`) REFERENCES `vendedor` (`IDVendedor`);
 COMMIT;
 

@@ -16,10 +16,10 @@
 #   curl -X PATCH \
 #   -H "Content-Type: application/json" \
 #   -d '{
-#     "numeroVendedor": 4,
-#     "nombreVendedor": "Stone Cold Steve Austin the Coldest"
+#     "IDVendedor": 4,
+#     "nombreVendedor": "Steve Austin"
 # }' \
-#   http://localhost:1337/vendedor/:id
+#   http://localhost:1337/vendedor/4
 
 # //ELIMINAR TIPO PRODUCTO
 # curl -X DELETE http://localhost:1337/tipoProducto/:id

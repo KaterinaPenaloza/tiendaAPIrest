@@ -9,15 +9,15 @@ function getAllCompradores() {
 };
 
 function deleteComprador(id) {
-    return knex("comprador").where("idComprador", id).del();
+    return knex("comprador").where("IDComprador", id).del();
 };
 
 function updateComprador(id, comprador) {
-    return knex("comprador").where("idComprador", id).update(comprador);
+    return knex("comprador").where("IDComprador", id).update(comprador);
 };
 
 function getComprador(id) {
-    return knex("comprador").where("idComprador",id).select("*");
+    return knex("comprador").where("IDComprador",id).select("*");
 };
 
 module.exports = {

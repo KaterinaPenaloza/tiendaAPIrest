@@ -9,15 +9,15 @@ function getAllTipoProductos() {
 };
 
 function deleteTipoProducto(id) {
-    return knex("tipoProducto").where("idTipoProducto", id).del();
+    return knex("tipoProducto").where("IDTipoProducto", id).del();
 };
 
 function updateTipoProducto(id, tipoProducto) {
-    return knex("tipoProducto").where("idTipoProducto", id).update(tipoProducto);
+    return knex("tipoProducto").where("IDTipoProducto", id).update(tipoProducto);
 };
 
 function getTipoProducto(id) {
-    return knex("tipoProducto").where("idTipoProducto",id).select("*");
+    return knex("tipoProducto").where("IDTipoProducto",id).select("*");
 };
 
 module.exports = {
